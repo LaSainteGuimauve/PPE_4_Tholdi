@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/ConnexionFragment">
+
+    <fragment
+        android:id="@+id/ConnexionFragment"
+        android:name="com.gsb.androfrais.ConnexionFragment"
+        android:label="Connexion"
+        tools:layout="@layout/fragment_connexion">
+
+        <action
+            android:id="@+id/FragConnexion_to_Accueil"
+            app:destination="@id/AccueilFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/AccueilFragment"
+        android:name="com.gsb.androfrais.AccueilFragment"
+        android:label="@string/second_fragment_label"
+        tools:layout="@layout/fragment_accueil">
+
+        <action
+            android:id="@+id/AccueilFrag_to_ConnexionFrag"
+            app:destination="@id/ConnexionFragment" />
+        <action
+            android:id="@+id/action_AccueilFragment_to_consulationReservationFragment"
+            app:destination="@id/consulationReservationFragment" />
+        <action
+            android:id="@+id/action_AccueilFragment_to_saisirReservationContainerFragment"
+            app:destination="@id/saisirReservationContainerFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/consulationReservationFragment"
+        android:name="com.gsb.androfrais.ConsulationReservationFragment"
+        android:label="fragment_consulation_reservation"
+        tools:layout="@layout/fragment_consulation_reservation" >
+        <action
+            android:id="@+id/action_consulationReservationFragment_to_AccueilFragment"
+            app:destination="@id/AccueilFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/saisirReservationContainerFragment"
+        android:name="com.gsb.androfrais.SaisirReservationContainerFragment"
+        android:label="fragment_saisir_reservation_container"
+        tools:layout="@layout/fragment_saisir_reservation_container" >
+        <action
+            android:id="@+id/action_saisirReservationContainerFragment_to_AccueilFragment"
+            app:destination="@id/AccueilFragment" />
+    </fragment>
+</navigation>

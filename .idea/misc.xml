@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/TholdiApp2/app/src/main/res/layout/fragment_accueil.xml" value="0.26875" />
+        <entry key="..\:/TholdiApp2/app/src/main/res/layout/fragment_connexion.xml" value="0.10638297872340426" />
+        <entry key="..\:/TholdiApp2/app/src/main/res/layout/fragment_consulation_reservation.xml" value="0.22" />
+        <entry key="..\:/TholdiApp2/app/src/main/res/layout/fragment_consultation_reservation.xml" value="0.26875" />
+        <entry key="..\:/TholdiApp2/app/src/main/res/layout/fragment_saisir_reservation_container.xml" value="0.25" />
+        <entry key="..\:/TholdiApp2/app/src/main/res/layout/saisir_note_de_frais.xml" value="0.2205128205128205" />
+        <entry key="..\:/TholdiApp2/app/src/main/res/layout/saisir_reservation_container.xml" value="0.26875" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>
