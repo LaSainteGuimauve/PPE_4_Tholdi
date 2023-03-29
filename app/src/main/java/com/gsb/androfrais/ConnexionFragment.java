@@ -47,8 +47,10 @@ public class ConnexionFragment extends Fragment {
         Log.i("fonction authentification","onClick");
         CookieManager cookieManager = new CookieManager();
         CookieHandler.setDefault(cookieManager);
-        final String login = binding.editTextIdentifiant.getText().toString();
-        final String password = binding.editTextMdp.getText().toString();
+        //final String login = binding.editTextIdentifiant.getText().toString();
+        //final String password = binding.editTextMdp.getText().toString();
+        final String login = "tholdi";
+        final String password = "@Xazerty1";
         RequestQueue queue = Volley.newRequestQueue(getContext());
         StringRequest sr = new StringRequest( //début de l’initialisation
                 Request.Method.POST,
@@ -84,7 +86,7 @@ public class ConnexionFragment extends Fragment {
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<String, String>();
                 params.put("login", login);
-                params.put("mdp", password);
+                params.put("password", password);
                 return params;
             }
             @Override

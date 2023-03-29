@@ -2,6 +2,8 @@ package com.gsb.androfrais;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.annotation.StringRes;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
@@ -18,6 +20,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.gsb.androfrais.databinding.FragmentConnexionBinding;
 import com.gsb.androfrais.databinding.FragmentSaisirReservationContainerBinding;
 
 import org.json.JSONArray;
@@ -77,20 +80,31 @@ public class SaisirReservationContainerFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_saisir_reservation_container, container, false);
+        binding = FragmentSaisirReservationContainerBinding.inflate(inflater, container, false);
+        return binding.getRoot();
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        binding.buttonEnvoyerSaisie.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                saisieContainer();
+            }
+        });
     }
 
     private void saisieContainer(){
         Log.i("fonction nvContainer", "onClick");
-        CookieManager cookieManager = new CookieManager();
-        CookieManager.setDefault(cookieManager);
+
         final String nbrJourStockage = binding.editTextNbJoursStockage.getText().toString();
         final String nbrContainer = binding.editTextQuantiteContainer.getText().toString();
         final String typeContainer = binding.editTextTypedeContainer.getText().toString();
         final String dateStockage = binding.editTextDateStockagePrVue.getText().toString();
         RequestQueue queue = Volley.newRequestQueue(getContext());
-        StringRequest sr = new StringRequest(Request.Method.POST, "http://ws.portofmiami.us/api/login",
+        StringRequest sr = new StringRequest(Request.Method.POST, "http://ws.portofmiami.us/api/reservation",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -121,10 +135,9 @@ public class SaisirReservationContainerFragment extends Fragment {
             @Override
             protected Map<String, String> getParams() {
                 Map<String, String> params = new HashMap<String, String>();
-                params.put("Jour Réserver", nbrJourStockage);
-                params.put("Nombre Container", nbrContainer);
-                params.put("Date stockage", dateStockage);
-                params.put("Type Container", typeContainer);
+                params.put("nbJours", nbrJourStockage);
+                params.put("quantite", nbrContainer);
+                params.put("dateDebut", dateStockage);
                 return params;
             }
             @Override
@@ -136,5 +149,56 @@ public class SaisirReservationContainerFragment extends Fragment {
         };
         queue.add(sr);
     }
+
+    /*private void updateFraisForfait(final String idFraisForfait, final String quantite, String idFicheFrais){
+        RequestQueue queue = Volley.newRequestQueue(getActivity().getApplicationContext());
+        StringRequest sr = new StringRequest(Request.Method.PUT, "http://ws-gsb.com/api/lignefraisforfait/" + idFicheFrais,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                String err = error.getMessage();
+                Log.e("SaisirNoteDeFrais", err);
+            }
+        }) {
+            @Override
+            protected Map<String, String> getParams() {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("quantite", quantite);
+                params.put("idFraisForfait", idFraisForfait);
+                return params;
+            }
+
+            @Override
+            public Map<String, String> getHeaders() throws AuthFailureError {
+                Map<String, String> params = new HashMap<String, String>();
+                params.put("Content-Type", "application/x-www-form-urlencoded");
+                return params;
+            }
+        };
+
+        queue.add(sr);
+    }
+
+    private void saveResaContainer() {
+
+        HashMap<String,String> lesReservation = new HashMap<String,String>();
+        String dateStockagePrv = binding.editTextDateStockagePrVue.getText().toString();
+        lesReservation.put("KM",dateStockagePrv);
+        String nbrJrStock = binding.editTextNbJoursStockage.getText().toString();
+        lesReservation.put("NUI",nbrJrStock);
+        String typeContainer = binding.editTextTypedeContainer.getText().toString();
+        lesReservation.put("RM",typeContainer);
+        String nbrContainer = binding.editTextNbJoursStockage.getText().toString();
+        lesReservation.put("RM",nbrContainer);
+
+
+        for(Map.Entry uneReservation : lesReservation.entrySet()){
+            update(unFrais.getKey().toString(),unFrais.getValue().toString(),idFicheFrais);
+        }
+    }*/
 
 }

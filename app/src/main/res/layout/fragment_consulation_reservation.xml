@@ -22,6 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ListView
+        android:id="@+id/ListViewConsultation"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="1dp"
@@ -53,12 +54,7 @@
             android:layout_weight="1"
             android:text="Nbr Jr Stock" />
 
-        <TextView
-            android:id="@+id/TextViewTypeContainerLinearLayoutConsultation"
-            android:layout_width="95dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="Type Cont" />
+
 
         <TextView
             android:id="@+id/TextViewQuantiteContLinearLayoutConsultation"
