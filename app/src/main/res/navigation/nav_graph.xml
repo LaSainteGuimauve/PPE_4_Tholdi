@@ -39,6 +39,9 @@
         <action
             android:id="@+id/action_consulationReservationFragment_to_AccueilFragment"
             app:destination="@id/AccueilFragment" />
+        <action
+            android:id="@+id/action_consulationReservationFragment_self"
+            app:destination="@id/consulationReservationFragment" />
     </fragment>
     <fragment
         android:id="@+id/saisirReservationContainerFragment"

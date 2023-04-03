@@ -5,11 +5,13 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.fragment.NavHostFragment;
 
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 
@@ -97,8 +99,50 @@ public class ConsulationReservationFragment extends Fragment {
         });
         queue.add(sr);
 
+        binding.ListViewConsultation.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String idResaContainer = ((Reservation)adapterView.getItemAtPosition(i)).getIdReservation();
+                supprimerReservation(idResaContainer);
+                NavHostFragment.findNavController(ConsulationReservationFragment.this)
+                        .navigate(R.id.action_consulationReservationFragment_self);
+            }
+        });
 
 
+
+    }
+
+    private void supprimerReservation(String idReservation){
+        RequestQueue queue = Volley.newRequestQueue(getActivity().getApplicationContext());
+        StringRequest sr = new StringRequest( //début de l’initialisation
+                Request.Method.DELETE,
+                "http://ws-gsb.com/api/reservation"+idReservation,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        Log.i("fonction supprimerReservation", "reponse");
+                        JSONObject deleted = null;
+                        try {
+                            deleted = new JSONObject(response);
+                            boolean state = deleted.getBoolean("isDeleted");
+                            Log.i("fonction authentification", "connecté"+deleted);
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                            String err = e.getMessage();
+                            Log.e("fonction authentification ConnexionFragment", "JsonException" + err);
+                        }
+                    }
+                },
+                new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        String err = error.getMessage();
+                        Log.e("fonction supprimerReservation", err);
+                    }
+                }) ;
+
+        queue.add(sr);
     }
 
 
