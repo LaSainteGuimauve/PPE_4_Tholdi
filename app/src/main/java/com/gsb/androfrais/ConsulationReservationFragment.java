@@ -53,12 +53,18 @@ public class ConsulationReservationFragment extends Fragment {
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
+
         super.onCreate(savedInstanceState);
+        /*getParentFragmentManager().beginTransaction()
+                .replace(R.id.consulationReservationFragment,this,"consultationReservation_TAG")
+                .addToBackStack("consultationReservation_TAG").commit();*/
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+
 
         final ArrayList<Reservation> collectionReservation = new ArrayList<Reservation>();
         final ReservationAdapter adapter = new ReservationAdapter(getContext(), R.layout.reservation, collectionReservation);

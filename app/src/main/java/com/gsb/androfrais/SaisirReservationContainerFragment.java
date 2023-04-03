@@ -101,7 +101,6 @@ public class SaisirReservationContainerFragment extends Fragment {
 
         final String nbrJourStockage = binding.editTextNbJoursStockage.getText().toString();
         final String nbrContainer = binding.editTextQuantiteContainer.getText().toString();
-        final String typeContainer = binding.editTextTypedeContainer.getText().toString();
         final String dateStockage = binding.editTextDateStockagePrVue.getText().toString();
         RequestQueue queue = Volley.newRequestQueue(getContext());
         StringRequest sr = new StringRequest(Request.Method.POST, "http://ws.portofmiami.us/api/reservation",

@@ -7,47 +7,31 @@
     tools:context=".SaisirReservationContainerFragment">
 
     <EditText
-        android:id="@+id/editTextTypedeContainer"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="8dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:minHeight="48dp"
-        android:text="Type de container"
-        app:layout_constraintBottom_toTopOf="@+id/editTextDateStockagePrévue"
-        app:layout_constraintEnd_toEndOf="@+id/editTextDateStockagePrévue"
-        app:layout_constraintStart_toStartOf="@+id/editTextDateStockagePrévue"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.956"
-        tools:ignore="MissingConstraints" />
-
-    <EditText
         android:id="@+id/editTextQuantiteContainer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="82dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="Quantité de container"
-        app:layout_constraintBottom_toBottomOf="@+id/editTextTypedeContainer"
-        app:layout_constraintEnd_toEndOf="@+id/editTextTypedeContainer"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextTypedeContainer"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0"
-        tools:ignore="MissingConstraints" />
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageViewLogoBateauSaisie"
+        app:layout_constraintVertical_bias="0.594"
+        tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
 
     <ImageView
         android:id="@+id/imageViewLogoBateauSaisie"
         android:layout_width="294dp"
         android:layout_height="209dp"
         android:src="@drawable/logo_bateau"
-        app:layout_constraintBottom_toTopOf="@+id/editTextNbJoursStockage"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0"
         app:srcCompat="@drawable/logo_bateau"
         tools:ignore="MissingConstraints" />
 
@@ -55,17 +39,16 @@
         android:id="@+id/editTextNbJoursStockage"
         android:layout_width="305dp"
         android:layout_height="48dp"
-        android:layout_marginBottom="4dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
-        android:text="Nombre de jours de stockage prévue"
-        app:layout_constraintBottom_toTopOf="@+id/editTextQuantiteContainer"
-        app:layout_constraintEnd_toEndOf="@+id/editTextQuantiteContainer"
-        app:layout_constraintStart_toStartOf="@+id/editTextQuantiteContainer"
+        android:text=""
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.867"
-        tools:ignore="MissingConstraints" />
+        app:layout_constraintVertical_bias="0.427"
+        tools:ignore="MissingConstraints,SpeakableTextPresentCheck" />
 
     <EditText
         android:id="@+id/editTextDateStockagePrévue"
@@ -74,12 +57,12 @@
         android:ems="10"
         android:inputType="date"
         android:minHeight="48dp"
-        android:text="Date stockage prévue ANNEE/MM/JJ"
+        android:text="ANNEE/MM/JJ"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.755"
+        app:layout_constraintVertical_bias="0.772"
         tools:ignore="MissingConstraints" />
 
     <Button
@@ -90,9 +73,41 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.881"
+        app:layout_constraintTop_toTopOf="@+id/imageViewLogoBateauSaisie"
+        app:layout_constraintVertical_bias="0.919"
         tools:ignore="MissingConstraints" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre de jours de stockage prévue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.33" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Quantité container"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageViewLogoBateauSaisie" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Date stockage prévue"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imageViewLogoBateauSaisie"
+        app:layout_constraintVertical_bias="0.671" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

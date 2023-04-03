@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/TholdiApp2/app/src/main/res/layout/activity_main.xml" value="0.18" />
         <entry key="..\:/TholdiApp2/app/src/main/res/layout/fragment_accueil.xml" value="0.1980806142034549" />
         <entry key="..\:/TholdiApp2/app/src/main/res/layout/fragment_connexion.xml" value="0.22" />
         <entry key="..\:/TholdiApp2/app/src/main/res/layout/fragment_consulation_reservation.xml" value="0.22" />

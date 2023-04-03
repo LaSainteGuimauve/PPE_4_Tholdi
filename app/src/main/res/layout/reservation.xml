@@ -41,7 +41,15 @@
             android:layout_height="match_parent"
             android:layout_weight="1">
 
+            <ImageButton
+                android:id="@+id/imageButton"
+                android:layout_width="65dp"
+                android:layout_height="60dp"
+                app:srcCompat="?attr/actionModeCutDrawable"
+                tools:ignore="SpeakableTextPresentCheck" />
         </FrameLayout>
+
+
 
 
     </LinearLayout>

@@ -13,6 +13,9 @@ public class Reservation {
     private String DateStockage;
     private String NbrJourStock;
     private String NbrContainer;
+    private String IdReservation;
+
+    public String getIdReservation(){return IdReservation;}
 
     public String getDateStockage() {return DateStockage;}
 
@@ -26,6 +29,7 @@ public class Reservation {
         DateStockage = jsonObject.optString("Dateprevuestockage");
         NbrJourStock = jsonObject.optString("Nbjoursdestockageprevu");
         NbrContainer = jsonObject.optString("Quantite");
+        IdReservation = jsonObject.optString("Id");
     }
 
     public static ArrayList<Reservation> fromJson(JSONArray jsonArray){
