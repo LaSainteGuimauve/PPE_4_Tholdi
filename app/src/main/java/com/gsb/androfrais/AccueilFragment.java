@@ -37,13 +37,29 @@ public class AccueilFragment extends Fragment {
             }
         });
 
-        binding.buttonAllerConsulterLesResa.setOnClickListener((new View.OnClickListener() {
+        binding.buttonAllerConsulterLesIncidents.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(AccueilFragment.this)
+                        .navigate(R.id.action_AccueilFragment_to_consultationIncidentFragment);
+            }
+        });
+
+        binding.buttonAllerConsulterLesResa.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 NavHostFragment.findNavController(AccueilFragment.this)
                         .navigate((R.id.action_AccueilFragment_to_consulationReservationFragment));
             }
-        }));
+        });
+
+        binding.buttonAllerSaisieIncident.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                NavHostFragment.findNavController(AccueilFragment.this)
+                        .navigate((R.id.action_AccueilFragment_to_saisirIncidentFragment));
+            }
+        });
     }
 
     @Override

@@ -8,9 +8,13 @@
         <entry key="..\:/TholdiApp2/app/src/main/res/layout/fragment_accueil.xml" value="0.1980806142034549" />
         <entry key="..\:/TholdiApp2/app/src/main/res/layout/fragment_connexion.xml" value="0.22" />
         <entry key="..\:/TholdiApp2/app/src/main/res/layout/fragment_consulation_reservation.xml" value="0.22" />
+        <entry key="..\:/TholdiApp2/app/src/main/res/layout/fragment_consultation_incident.xml" value="0.2459016393442623" />
         <entry key="..\:/TholdiApp2/app/src/main/res/layout/fragment_consultation_reservation.xml" value="0.26875" />
         <entry key="..\:/TholdiApp2/app/src/main/res/layout/fragment_detail_reservation.xml" value="0.2015625" />
+        <entry key="..\:/TholdiApp2/app/src/main/res/layout/fragment_saisir_incident.xml" value="0.2459016393442623" />
+        <entry key="..\:/TholdiApp2/app/src/main/res/layout/fragment_saisir_incident2.xml" value="0.2459016393442623" />
         <entry key="..\:/TholdiApp2/app/src/main/res/layout/fragment_saisir_reservation_container.xml" value="0.2" />
+        <entry key="..\:/TholdiApp2/app/src/main/res/layout/incident.xml" value="0.25" />
         <entry key="..\:/TholdiApp2/app/src/main/res/layout/reservation.xml" value="0.20078125" />
         <entry key="..\:/TholdiApp2/app/src/main/res/layout/saisir_note_de_frais.xml" value="0.2205128205128205" />
         <entry key="..\:/TholdiApp2/app/src/main/res/layout/saisir_reservation_container.xml" value="0.26875" />

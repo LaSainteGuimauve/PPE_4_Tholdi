@@ -30,6 +30,12 @@
         <action
             android:id="@+id/action_AccueilFragment_to_saisirReservationContainerFragment"
             app:destination="@id/saisirReservationContainerFragment" />
+        <action
+            android:id="@+id/action_AccueilFragment_to_consultationIncidentFragment"
+            app:destination="@id/consultationIncidentFragment" />
+        <action
+            android:id="@+id/action_AccueilFragment_to_saisirIncidentFragment"
+            app:destination="@id/saisirIncidentFragment" />
     </fragment>
     <fragment
         android:id="@+id/consulationReservationFragment"
@@ -50,6 +56,27 @@
         tools:layout="@layout/fragment_saisir_reservation_container" >
         <action
             android:id="@+id/action_saisirReservationContainerFragment_to_AccueilFragment"
+            app:destination="@id/AccueilFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/consultationIncidentFragment"
+        android:name="com.gsb.androfrais.ConsultationIncidentFragment"
+        android:label="fragment_consultation_incident"
+        tools:layout="@layout/fragment_consultation_incident" >
+        <action
+            android:id="@+id/action_consultationIncidentFragment_to_AccueilFragment"
+            app:destination="@id/AccueilFragment" />
+        <action
+            android:id="@+id/action_consultationIncidentFragment_self"
+            app:destination="@id/consultationIncidentFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/saisirIncidentFragment"
+        android:name="com.gsb.androfrais.SaisirIncidentFragment"
+        android:label="fragment_saisir_incident"
+        tools:layout="@layout/fragment_saisir_incident" >
+        <action
+            android:id="@+id/action_saisirIncidentFragment_to_AccueilFragment"
             app:destination="@id/AccueilFragment" />
     </fragment>
 </navigation>
