@@ -63,77 +63,7 @@ public class ReservationAdapter extends ArrayAdapter<Reservation> {
             convertView.setBackgroundColor(Color.WHITE);
         }
 
-        ImageButton imgBtn = convertView.findViewById(R.id.imageButton);
-        imgBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
 
-                Log.i("idReservation",""+reservation.getIdReservation());
-
-                Log.i("fonction authentification","onClick");
-                CookieManager cookieManager = new CookieManager();
-                CookieHandler.setDefault(cookieManager);
-                //final String login = binding.editTextIdentifiant.getText().toString();
-                //final String password = binding.editTextMdp.getText().toString();
-                RequestQueue queue = Volley.newRequestQueue(getContext());
-                StringRequest sr = new StringRequest( //début de l’initialisation
-                        Request.Method.DELETE,
-                        "http://ws.portofmiami.us/api/reservation/"+reservation.getIdReservation(),
-                        new Response.Listener<String>() {
-                            @Override
-                            public void onResponse(String response) {
-                                Log.i("fonction suppression Reservation","reponse");
-                                JSONObject connected = null;
-                                try {
-                                    connected = new JSONObject(response);
-                                    boolean state = connected.getBoolean("connected");
-                                } catch (JSONException e) {
-                                    e.printStackTrace();
-                                    String err = e.getMessage();
-                                    Log.e("fonction suppression Réservation", "JsonException" + err);
-                                }
-                            }
-                        },
-                        new Response.ErrorListener() {
-                            @Override
-                            public void onErrorResponse(VolleyError error) {
-                                String err = error.getMessage();
-                                Log.e("fonction suppression Réservation", err);
-                            }
-                        });
-                queue.add(sr);
-
-
-                /*Fragment frg = null;
-                MainActivityFragment mainActivityFragment = (MainActivityFragment)getContext();
-                frg = mainActivityFragment.getSupportFragmentManager().findFragmentByTag("consultationReservation_TAG");
-                final FragmentTransaction ft = mainActivityFragment.getSupportFragmentManager().beginTransaction();
-                ft.detach(frg);
-                ft.attach(frg);
-                ft.commit();*/
-
-                /*Fragment currentFragment = ((MainActivityFragment)getContext()).getSupportFragmentManager().findFragmentById(R.id.consulationReservationFragment);*/
-
-                /*if (currentFragment instanceof ConsulationReservationFragment) {
-
-                    try {
-                        FragmentTransaction fragTransaction =   ((MainActivityFragment)getContext()).getSupportFragmentManager().beginTransaction();
-                        fragTransaction.remove(currentFragment);
-                        Fragment.SavedState savedState = ((MainActivityFragment)getContext()).getSupportFragmentManager().saveFragmentInstanceState(currentFragment);
-                        Fragment newInstance = currentFragment.getClass().newInstance();
-                        newInstance.setInitialSavedState(savedState);
-                        fragTransaction.add(R.id.consulationReservationFragment,newInstance);
-                        fragTransaction.commit();
-                    }
-                    catch (Exception e) // InstantiationException, IllegalAccessException
-                    {
-                        throw new RuntimeException("Cannot reinstantiate fragment " , e);
-                    }
-
-                }*/
-
-            }
-        });
 
         TextView dateStockage = (TextView) convertView.findViewById(R.id.textViewDateStockageLinearLayoutReservationXML);
         TextView nbrJoursStocker = (TextView) convertView.findViewById(R.id.textViewNbrJrStockageLinearLayoutReservationXML);

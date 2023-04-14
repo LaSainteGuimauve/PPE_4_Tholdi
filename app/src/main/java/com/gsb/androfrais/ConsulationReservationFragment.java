@@ -57,19 +57,16 @@ public class ConsulationReservationFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        /*getParentFragmentManager().beginTransaction()
-                .replace(R.id.consulationReservationFragment,this,"consultationReservation_TAG")
-                .addToBackStack("consultationReservation_TAG").commit();*/
+
     }
 
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-
-
         final ArrayList<Reservation> collectionReservation = new ArrayList<Reservation>();
         final ReservationAdapter adapter = new ReservationAdapter(getContext(), R.layout.reservation, collectionReservation);
+        adapter.notifyDataSetChanged();
 
         ListView lw = binding.ListViewConsultation;
         lw.setAdapter(adapter);
@@ -104,8 +101,10 @@ public class ConsulationReservationFragment extends Fragment {
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String idResaContainer = ((Reservation)adapterView.getItemAtPosition(i)).getIdReservation();
                 supprimerReservation(idResaContainer);
+                Log.i("Supprimer ou non", "");
                 NavHostFragment.findNavController(ConsulationReservationFragment.this)
                         .navigate(R.id.action_consulationReservationFragment_self);
+
             }
         });
 
@@ -117,7 +116,8 @@ public class ConsulationReservationFragment extends Fragment {
         RequestQueue queue = Volley.newRequestQueue(getActivity().getApplicationContext());
         StringRequest sr = new StringRequest( //début de l’initialisation
                 Request.Method.DELETE,
-                "http://ws-gsb.com/api/reservation"+idReservation,
+                "http://ws-gsb.com/api/reservation"+idReservation
+                ,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
